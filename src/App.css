@@ -1,0 +1,25 @@
+body{
+
+  background-image: linear-gradient(to bottom, rgb(246, 246, 210),rgb(245, 214, 226));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+
+.gorev{
+
+    background: rgb(193, 193, 61);
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    
+  }
+  
+  .done{
+    border-bottom: 10px solid rgb(40, 187, 209);
+    text-decoration: line-through;
+    background-color: rgba(2, 112, 53, 0.714) !important;
+    padding: 10px 20px;    
+  
+  }

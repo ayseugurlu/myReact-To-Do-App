@@ -1,23 +1,35 @@
 import React, { useState } from "react";
 import { Container, Form, InputGroup, ListGroup } from "react-bootstrap";
 
-import ToDoList from "./ToDoList";
 
-const ToDoContainer = () => {
-    const [deger,SetDeger]=useState([])
+const ToDoContainer = ({todo,setTodo}) => {
 
-    console.log(deger);
+
+    const [text,setText]=useState([])
+
+    console.log(text);
+
+    const handleSubmit=(e)=>{
+      console.log("clicked")
+      e.preventDefault();
+      localStorage.setItem("todoList",JSON.stringify([...todo, {id: Date.now(), text:text, isDone:false}]))
+
+      setTodo(JSON.parse(localStorage.getItem("todoList")))
+
+      setText("")
+    }
    
   return (
     <Container>
-      <InputGroup className="mb-3">
-        <Form.Control  onChange={(e)=>SetDeger(e)} className="p-3" placeholder="Add a new task... " />
+
+      <InputGroup  className="mb-3">
+        <Form.Control  onChange={(e)=>setText(e.target.value)} className="p-3" placeholder="Add a new task... " value={text}/>
         <InputGroup.Text
           className="w-25  bg-success text-light justify-content-center"
-          role="button"
+          type="submit"
           id="add-button"
-          
-          
+          onClick={handleSubmit}
+
         >
           ADD
         </InputGroup.Text>
@@ -26,7 +38,7 @@ const ToDoContainer = () => {
       <Container> 
       <h3 className="text-center mt-5 mb-3">My To-Do List</h3>
 
-      <ToDoList/>
+      
 
 
       </Container>
