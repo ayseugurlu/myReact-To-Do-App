@@ -22,7 +22,7 @@ const ToDoContainer = ({todo,setTodo}) => {
   return (
     <Container>
 
-      <InputGroup  className="mb-3">
+      <InputGroup  className=" mb-3">
         <Form.Control  onChange={(e)=>setText(e.target.value)} className="p-3" placeholder="Add a new task... " value={text}/>
         <InputGroup.Text
           className="w-25  bg-success text-light justify-content-center"
